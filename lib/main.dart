@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:smart_village_app/features/medical/presentation/pages/chat_page.dart';
 import 'core/di/injection_container.dart';
 import 'shared/themes/app_theme.dart';
 import 'features/dashboard/presentation/pages/dashboard_page.dart';
@@ -12,10 +13,10 @@ import 'features/auth/presentation/pages/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize dependency injection
   configureDependencies();
-  
+
   runApp(const SmartVillageApp());
 }
 
@@ -64,9 +65,14 @@ class SmartVillageApp extends StatelessWidget {
         GetPage(
           name: '/law-and-land',
           page: () => const LawAndLandPage(),
-        ),        GetPage(
+        ),
+        GetPage(
           name: '/emergency',
           page: () => const EmergencyPage(),
+        ),
+        GetPage(
+          name: '/medical/chat',
+          page: () => const ChatPage(),
         ),
       ],
     );

@@ -9,7 +9,7 @@ class MedicalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(MedicalController());
-    
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('স্বাস্থ্য সেবা'),
@@ -25,32 +25,32 @@ class MedicalPage extends StatelessWidget {
             children: [
               // AI Health Assistant Section
               _buildAIHealthSection(context, controller),
-              
+
               const SizedBox(height: 20),
-              
-              // Nearest Hospital Section
-              _buildNearestHospitalSection(context, controller),
-              
-              const SizedBox(height: 20),
-              
-              // Emergency Contacts Section
-              _buildEmergencyContactsSection(context, controller),
-              
-              const SizedBox(height: 20),
-              
-              // District-wise Doctors Section
-              _buildDistrictDoctorsSection(context, controller),
-              
-              const SizedBox(height: 20),
-              
-              // Vaccination Reminder Section
-              _buildVaccinationSection(context, controller),
-              
-              const SizedBox(height: 20),
-              
+
               // Skin Disease Detection Section
               _buildSkinDetectionSection(context, controller),
-              
+
+              const SizedBox(height: 20),
+
+              // Nearest Hospital Section
+              _buildNearestHospitalSection(context, controller),
+
+              const SizedBox(height: 20),
+
+              // Emergency Contacts Section
+              _buildEmergencyContactsSection(context, controller),
+
+              const SizedBox(height: 20),
+
+              // District-wise Doctors Section
+              _buildDistrictDoctorsSection(context, controller),
+
+              const SizedBox(height: 20),
+
+              // Vaccination Reminder Section
+              _buildVaccinationSection(context, controller),
+
               const SizedBox(height: 20),
             ],
           ),
@@ -59,7 +59,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildAIHealthSection(BuildContext context, MedicalController controller) {
+  Widget _buildAIHealthSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -97,7 +98,8 @@ class MedicalPage extends StatelessWidget {
                   size: 28,
                 ),
               ),
-              const SizedBox(width: 12),              const Expanded(
+              const SizedBox(width: 12),
+              const Expanded(
                 child: Text(
                   'AI হেলথ সহকারী',
                   style: TextStyle(
@@ -109,9 +111,7 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 16),
-          
           const Text(
             'আপনার উপসর্গ লিখুন বা বলুন',
             style: TextStyle(
@@ -119,14 +119,12 @@ class MedicalPage extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          
           const SizedBox(height: 16),
-          
           Row(
             children: [
               Expanded(
                 child: ElevatedButton.icon(
-                  onPressed: () => controller.openAIChat(),
+                  onPressed: () => Get.toNamed('/medical/chat'),
                   icon: const Icon(Icons.chat_bubble_outline),
                   label: const Text('চ্যাট করুন'),
                   style: ElevatedButton.styleFrom(
@@ -159,7 +157,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildNearestHospitalSection(BuildContext context, MedicalController controller) {
+  Widget _buildNearestHospitalSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -190,7 +189,8 @@ class MedicalPage extends StatelessWidget {
                   size: 24,
                 ),
               ),
-              const SizedBox(width: 12),              const Text(
+              const SizedBox(width: 12),
+              const Text(
                 'কাছাকাছি হাসপাতাল',
                 style: TextStyle(
                   fontSize: 18,
@@ -200,8 +200,7 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
-          const SizedBox(height: 16),          
+          const SizedBox(height: 16),
           ...controller.nearestHospitals.map((hospital) {
             return Container(
               margin: const EdgeInsets.only(bottom: 12),
@@ -258,7 +257,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildEmergencyContactsSection(BuildContext context, MedicalController controller) {
+  Widget _buildEmergencyContactsSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -287,11 +287,10 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 16),
-          
           Row(
-            children: [              Expanded(
+            children: [
+              Expanded(
                 child: _buildEmergencyButton(
                   'অ্যাম্বুলেন্স',
                   '৯৯৯',
@@ -310,11 +309,10 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 12),
-          
           Row(
-            children: [              Expanded(
+            children: [
+              Expanded(
                 child: _buildEmergencyButton(
                   'পুলিশ',
                   '৯৯৯',
@@ -338,7 +336,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildEmergencyButton(String title, String number, Color color, VoidCallback onPressed) {
+  Widget _buildEmergencyButton(
+      String title, String number, Color color, VoidCallback onPressed) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -365,7 +364,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildDistrictDoctorsSection(BuildContext context, MedicalController controller) {
+  Widget _buildDistrictDoctorsSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -396,7 +396,8 @@ class MedicalPage extends StatelessWidget {
                   size: 24,
                 ),
               ),
-              const SizedBox(width: 12),              const Text(
+              const SizedBox(width: 12),
+              const Text(
                 'জেলা ভিত্তিক ডাক্তার',
                 style: TextStyle(
                   fontSize: 18,
@@ -406,11 +407,10 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 16),
-          
           SizedBox(
-            width: double.infinity,            child: ElevatedButton.icon(
+            width: double.infinity,
+            child: ElevatedButton.icon(
               onPressed: () => controller.searchDoctors(),
               icon: const Icon(Icons.search),
               label: const Text('আপনার জেলার ডাক্তার খুঁজুন'),
@@ -429,7 +429,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildVaccinationSection(BuildContext context, MedicalController controller) {
+  Widget _buildVaccinationSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -454,7 +455,8 @@ class MedicalPage extends StatelessWidget {
                   size: 24,
                 ),
               ),
-              const SizedBox(width: 12),              const Text(
+              const SizedBox(width: 12),
+              const Text(
                 'টিকা ও ক্যাম্পের রিমাইন্ডার',
                 style: TextStyle(
                   fontSize: 18,
@@ -464,11 +466,10 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 16),
-          
           Row(
-            children: [              Expanded(
+            children: [
+              Expanded(
                 child: ElevatedButton.icon(
                   onPressed: () => controller.setVaccinationReminder({}),
                   icon: const Icon(Icons.notification_add),
@@ -483,7 +484,8 @@ class MedicalPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),              Expanded(
+              const SizedBox(width: 12),
+              Expanded(
                 child: ElevatedButton.icon(
                   onPressed: () => controller.openCalendar(),
                   icon: const Icon(Icons.calendar_today),
@@ -506,7 +508,8 @@ class MedicalPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSkinDetectionSection(BuildContext context, MedicalController controller) {
+  Widget _buildSkinDetectionSection(
+      BuildContext context, MedicalController controller) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -537,7 +540,8 @@ class MedicalPage extends StatelessWidget {
                   size: 24,
                 ),
               ),
-              const SizedBox(width: 12),              const Expanded(
+              const SizedBox(width: 12),
+              const Expanded(
                 child: Text(
                   'স্কিন ছবি দিয়ে রোগ চিহ্নিত করুন',
                   style: TextStyle(
@@ -549,9 +553,7 @@ class MedicalPage extends StatelessWidget {
               ),
             ],
           ),
-          
           const SizedBox(height: 12),
-          
           Text(
             'AI ব্যবহার করে ত্বকের সমস্যা শনাক্ত করুন',
             style: TextStyle(
@@ -559,11 +561,10 @@ class MedicalPage extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          
           const SizedBox(height: 16),
-          
           Row(
-            children: [              Expanded(
+            children: [
+              Expanded(
                 child: ElevatedButton.icon(
                   onPressed: () => controller.openCamera(),
                   icon: const Icon(Icons.camera_alt),
@@ -578,7 +579,8 @@ class MedicalPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),              Expanded(
+              const SizedBox(width: 12),
+              Expanded(
                 child: ElevatedButton.icon(
                   onPressed: () => controller.uploadFromGallery(),
                   icon: const Icon(Icons.upload),
